@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FLOW VERSION="1.0" CLEANUP="false">
+  <COMMENT>Flow service to deploy to ERT</COMMENT>
+
+  <!-- nodes -->
+
+<SEQUENCE TIMEOUT="" EXIT-ON="FAILURE" FORM="TRY">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<INVOKE NAME="UserGroupDemo" SERVICE="usergroupdemo.flowservices:welcomeService1">
+  <COMMENT></COMMENT>
+</INVOKE>
+</SEQUENCE>
+
+<SEQUENCE EXIT-ON="FAILURE" FORM="CATCH">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<INVOKE NAME="Flow" SERVICE="pub.flow:getLastFailureCaught">
+  <COMMENT></COMMENT>
+</INVOKE>
+
+<EXIT FROM="$flow" SIGNAL="FAILURE" FAILURE-MESSAGE="%/failureMessage%">
+  <COMMENT></COMMENT>
+</EXIT>
+</SEQUENCE>
+</FLOW>
