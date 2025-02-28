@@ -15,7 +15,7 @@
 </INVOKE>
 
 <INVOKE NAME="Flow" SERVICE="pub.flow:debugLog">
-  <COMMENT></COMMENT>
+  <COMMENT>log message</COMMENT>
 
   <!-- nodes -->
 
